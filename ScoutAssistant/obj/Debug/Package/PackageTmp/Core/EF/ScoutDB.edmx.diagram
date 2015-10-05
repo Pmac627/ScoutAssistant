@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="521579d9844a484c8c2f3cf5dc093b2e" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="EF.Address" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.AddressType" Width="1.5" PointX="1.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.Association" Width="1.5" PointX="0.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.BowlGame" Width="1.5" PointX="0.75" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.Conference" Width="1.5" PointX="0.75" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.Division" Width="1.5" PointX="0.75" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.Document" Width="1.5" PointX="0.75" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.DocumentType" Width="1.5" PointX="1.5" PointY="39.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.Field" Width="1.5" PointX="0.75" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.Person" Width="1.5" PointX="3" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.Player" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.SchoolPersonnel" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.School" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.ScoutAssignment" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.Title" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.vwSchoolPersonnelList" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="EF.FK_Addresses_AddressTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="EF.FK_Schools_Addresses" ManuallyRouted="false" />
+        <AssociationConnector Association="EF.FK_Schools_FootballAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="EF.FK_Schools_Associations" ManuallyRouted="false" />
+        <AssociationConnector Association="EF.FK_Schools_BowlGames" ManuallyRouted="false" />
+        <AssociationConnector Association="EF.FK_Schools_Conferences" ManuallyRouted="false" />
+        <AssociationConnector Association="EF.FK_Schools_Divisions" ManuallyRouted="false" />
+        <AssociationConnector Association="EF.FK_Documents_DocumentTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="EF.FK_Schools_Documents" ManuallyRouted="false" />
+        <AssociationConnector Association="EF.FK_Schools_Fields" ManuallyRouted="false" />
+        <AssociationConnector Association="EF.FK_Players_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="EF.FK_SchoolPersonnel_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="EF.FK_Players_School" ManuallyRouted="false" />
+        <AssociationConnector Association="EF.FK_SchoolPersonnel_School" ManuallyRouted="false" />
+        <AssociationConnector Association="EF.FK_ScoutAssignments_School" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EF.Scout" Width="1.5" PointX="0.75" PointY="6.625" />
+        <AssociationConnector Association="EF.FK_Schools_PrimaryAreaScout" />
+        <AssociationConnector Association="EF.FK_Schools_PrimaryScout" />
+        <AssociationConnector Association="EF.FK_Schools_RegionalScout" />
+        <AssociationConnector Association="EF.FK_Schools_SecondaryScout" />
+        <AssociationConnector Association="EF.FK_ScoutAssignments_Scout" />
+        <EntityTypeShape EntityType="EF.vwSchoolFullList" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="EF.vwSchoolPartialList" Width="1.5" PointX="7.375" PointY="11.75" />
+        <EntityTypeShape EntityType="EF.vwSchoolPlayerList" Width="1.5" PointX="10.375" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,687 @@
+﻿@model ScoutAssistant.Models.SchoolDetailsModel
+
+@{
+    ViewBag.Title = string.Format("{0} Details", Model.GreenBookName);
+}
+<p>
+    <button type="button" class="btn btn-info" style="line-height: initial; margin: 0;" onclick="location.href='/School/List';">Back to School List</button>
+</p>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ScoutArea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScoutArea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.School)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.School)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESPN_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESPN_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SchoolShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SchoolShortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GreenBookName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GreenBookName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NickName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NickName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Association)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Association)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Division)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Division)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conference)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conference)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionaireFileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionaireFileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressLine1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressLine1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HeadCoachName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HeadCoachName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HeadCoachPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HeadCoachPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HeadCoachEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HeadCoachEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssistantCoaches)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssistantCoaches)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssistantPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssistantPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VideoDirector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VideoDirector)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VideoDirPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VideoDirPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AthleticDir)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AthleticDir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AthleticDirPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AthleticDirPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AthleticDirEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AthleticDirEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AthleticDirFax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AthleticDirFax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SportsInfoDir)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SportsInfoDir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SIDPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SIDPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SIDFax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SIDFax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SIDEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SIDEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trainer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trainer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainerPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainerPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StrengthCoach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StrengthCoach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StrCoachPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StrCoachPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipManager)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EquipManager)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipManagerPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EquipManagerPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PressBoxPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PressBoxPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NationalGradedPlayers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NationalGradedPlayers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FalconsGradedPlayers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FalconsGradedPlayers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryScoutID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryScoutID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondaryScoutID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondaryScoutID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BowlGame)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BowlGame)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeField)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeField)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Capacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surface)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surface)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SchoolColors)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SchoolColors)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FBWebsite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FBWebsite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransmitFlag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransmitFlag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BowlGameDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BowlGameDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BowlGameText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BowlGameText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BowlGameOpponent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BowlGameOpponent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BowlGameTV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BowlGameTV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsNew)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsNew)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkoutDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkoutDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkoutDate2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkoutDate2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProLiaison)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProLiaison)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProLiaisonPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProLiaisonPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Secretary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Secretary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecretaryPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecretaryPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryAreaScoutID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryAreaScoutID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegionalScoutID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegionalScoutID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Misc1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Misc1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Misc2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Misc2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Misc3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Misc3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RivalsURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RivalsURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RivalsAltURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RivalsAltURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstitutionID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstitutionID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BCSSchool)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BCSSchool)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HideBirthdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HideBirthdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NFLSchoolID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NFLSchoolID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Restrictions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restrictions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClosedDates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClosedDates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InSeasonSchedule)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InSeasonSchedule)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RestrictionsCompleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RestrictionsCompleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RestrictionsCompletedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RestrictionsCompletedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FootballAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FootballAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isAPT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isAPT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APTClub)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APTClub)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HBCU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HBCU)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button type="button" class="btn btn-info" style="line-height: initial; margin: 0;" onclick="location.href='/School/List';">Back to School List</button>
+</p>

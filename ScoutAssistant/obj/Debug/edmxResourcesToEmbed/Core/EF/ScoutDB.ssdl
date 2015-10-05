@@ -1,0 +1,985 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EF.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="AddressId" />
+    </Key>
+    <Property Name="AddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AddressTypeId" Type="int" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="State" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Country" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="50" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AddressTypes">
+    <Key>
+      <PropertyRef Name="AddressTypeId" />
+    </Key>
+    <Property Name="AddressTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LongName" Type="nvarchar" MaxLength="200" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Associations">
+    <Key>
+      <PropertyRef Name="AssociationsId" />
+    </Key>
+    <Property Name="AssociationsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LongName" Type="nvarchar" MaxLength="200" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BowlGames">
+    <Key>
+      <PropertyRef Name="BowlGamesId" />
+    </Key>
+    <Property Name="BowlGamesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LongName" Type="nvarchar" MaxLength="200" />
+    <Property Name="GameDate" Type="datetime" />
+    <Property Name="GameText" Type="nvarchar" MaxLength="500" />
+    <Property Name="GameOpponent" Type="nvarchar" MaxLength="200" />
+    <Property Name="GameTV" Type="nvarchar" MaxLength="100" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Conferences">
+    <Key>
+      <PropertyRef Name="ConferenceId" />
+    </Key>
+    <Property Name="ConferenceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LongName" Type="nvarchar" MaxLength="200" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Divisions">
+    <Key>
+      <PropertyRef Name="DivisionsId" />
+    </Key>
+    <Property Name="DivisionsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LongName" Type="nvarchar" MaxLength="200" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="DocumentId" />
+    </Key>
+    <Property Name="DocumentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentTypeId" Type="int" Nullable="false" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="FileType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentTypes">
+    <Key>
+      <PropertyRef Name="DocumentTypeId" />
+    </Key>
+    <Property Name="DocumentTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LongName" Type="nvarchar" MaxLength="200" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fields">
+    <Key>
+      <PropertyRef Name="FieldsId" />
+    </Key>
+    <Property Name="FieldsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LongName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Capacity" Type="int" />
+    <Property Name="Surface" Type="nvarchar" MaxLength="100" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Persons">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="40" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Prefix" Type="nvarchar" MaxLength="10" />
+    <Property Name="Suffix" Type="nvarchar" MaxLength="10" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="14" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="14" />
+    <Property Name="Email" Type="nvarchar" MaxLength="60" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Players">
+    <Key>
+      <PropertyRef Name="PlayerId" />
+    </Key>
+    <Property Name="PlayerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="SchoolId" Type="int" Nullable="false" />
+    <Property Name="Jersey" Type="int" />
+    <Property Name="Eligibility" Type="nvarchar" MaxLength="2" />
+    <Property Name="HometownCity" Type="nvarchar" MaxLength="50" />
+    <Property Name="HometownState" Type="nvarchar" MaxLength="2" />
+    <Property Name="Height" Type="int" />
+    <Property Name="Weight" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Speed" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Position" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SchoolPersonnel">
+    <Key>
+      <PropertyRef Name="SchoolId" />
+      <PropertyRef Name="PersonId" />
+      <PropertyRef Name="TitleId" />
+    </Key>
+    <Property Name="SchoolId" Type="int" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="TitleId" Type="int" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Schools">
+    <Key>
+      <PropertyRef Name="SchoolId" />
+    </Key>
+    <Property Name="SchoolId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SchoolCode" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="ScoutArea" Type="int" Nullable="false" />
+    <Property Name="School" Type="nvarchar" MaxLength="100" />
+    <Property Name="ESPNId" Type="int" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="GreenBookName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="AssociationId" Type="int" Nullable="false" />
+    <Property Name="DivisionId" Type="int" Nullable="false" />
+    <Property Name="ConferenceId" Type="int" Nullable="false" />
+    <Property Name="QuestionaireId" Type="int" />
+    <Property Name="AddressId" Type="int" Nullable="false" />
+    <Property Name="PressBoxPhone" Type="nvarchar" MaxLength="14" />
+    <Property Name="NationalGradedPlayers" Type="int" />
+    <Property Name="FalconsGradedPlayers" Type="int" />
+    <Property Name="PrimaryScoutId" Type="int" />
+    <Property Name="SecondaryScoutId" Type="int" />
+    <Property Name="BowlGameId" Type="int" />
+    <Property Name="GraduationDate" Type="datetime" />
+    <Property Name="FieldId" Type="int" />
+    <Property Name="SchoolColors" Type="nvarchar" MaxLength="100" />
+    <Property Name="Website" Type="nvarchar" MaxLength="100" />
+    <Property Name="TransmitFlag" Type="bit" Nullable="false" />
+    <Property Name="IsNew" Type="bit" Nullable="false" />
+    <Property Name="WorkoutDate" Type="datetime" />
+    <Property Name="WorkoutDate2" Type="datetime" />
+    <Property Name="PrimaryAreaScoutId" Type="int" />
+    <Property Name="RegionalScoutId" Type="int" />
+    <Property Name="Misc1" Type="nvarchar" MaxLength="100" />
+    <Property Name="Misc2" Type="nvarchar" MaxLength="100" />
+    <Property Name="Misc3" Type="nvarchar" MaxLength="100" />
+    <Property Name="RivalsUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="RivalsAltUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="Comments" Type="nvarchar(max)" />
+    <Property Name="InstitutionId" Type="int" />
+    <Property Name="BCSSchool" Type="bit" Nullable="false" />
+    <Property Name="HideBirthdate" Type="bit" Nullable="false" />
+    <Property Name="NFLSchoolId" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="Restrictions" Type="nvarchar(max)" />
+    <Property Name="ClosedDates" Type="nvarchar(max)" />
+    <Property Name="InSeasonSchedule" Type="nvarchar(max)" />
+    <Property Name="RestrictionsCompleted" Type="datetime" />
+    <Property Name="RestrictionsCompletedBy" Type="int" />
+    <Property Name="FootballAddressId" Type="int" Nullable="false" />
+    <Property Name="isAPT" Type="bit" Nullable="false" />
+    <Property Name="APTClub" Type="nvarchar" MaxLength="3" />
+    <Property Name="HBCU" Type="bit" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScoutAssignments">
+    <Key>
+      <PropertyRef Name="ScoutId" />
+      <PropertyRef Name="SchoolId" />
+    </Key>
+    <Property Name="ScoutId" Type="int" Nullable="false" />
+    <Property Name="SchoolId" Type="int" Nullable="false" />
+    <Property Name="Priority" Type="int" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Scouts">
+    <Key>
+      <PropertyRef Name="ScoutId" />
+    </Key>
+    <Property Name="ScoutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="TitleId" Type="int" Nullable="false" />
+    <Property Name="ScoutCode" Type="nvarchar" MaxLength="4" />
+    <Property Name="Username" Type="nvarchar" MaxLength="40" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Titles">
+    <Key>
+      <PropertyRef Name="TitlesId" />
+    </Key>
+    <Property Name="TitlesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LongName" Type="nvarchar" MaxLength="200" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ScoutAssistant.dbo.vwSchoolFullList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwSchoolFullList">
+    <Key>
+      <PropertyRef Name="SchoolCode" />
+      <PropertyRef Name="ScoutArea" />
+      <PropertyRef Name="ESPN_ID" />
+      <PropertyRef Name="SchoolShortName" />
+      <PropertyRef Name="GreenBookName" />
+      <PropertyRef Name="NickName" />
+      <PropertyRef Name="TransmitFlag" />
+      <PropertyRef Name="IsNew" />
+      <PropertyRef Name="BCSSchool" />
+      <PropertyRef Name="HideBirthdate" />
+      <PropertyRef Name="NFLSchoolID" />
+      <PropertyRef Name="isAPT" />
+      <PropertyRef Name="HBCU" />
+    </Key>
+    <Property Name="SchoolCode" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="ScoutArea" Type="int" Nullable="false" />
+    <Property Name="School" Type="nvarchar" MaxLength="100" />
+    <Property Name="ESPN_ID" Type="int" Nullable="false" />
+    <Property Name="SchoolShortName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="GreenBookName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Association" Type="nvarchar" MaxLength="100" />
+    <Property Name="Division" Type="nvarchar" MaxLength="100" />
+    <Property Name="Conference" Type="nvarchar" MaxLength="100" />
+    <Property Name="QuestionaireFileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="100" />
+    <Property Name="State" Type="nvarchar" MaxLength="2" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="HeadCoachName" Type="nvarchar" MaxLength="150" />
+    <Property Name="HeadCoachPhone" Type="nvarchar" MaxLength="14" />
+    <Property Name="HeadCoachEmail" Type="nvarchar" MaxLength="60" />
+    <Property Name="AssistantCoaches" Type="nvarchar(max)" />
+    <Property Name="AssistantPhone" Type="nvarchar" MaxLength="14" />
+    <Property Name="VideoDirector" Type="nvarchar" MaxLength="150" />
+    <Property Name="VideoDirPhone" Type="nvarchar" MaxLength="14" />
+    <Property Name="AthleticDir" Type="nvarchar" MaxLength="150" />
+    <Property Name="AthleticDirPhone" Type="nvarchar" MaxLength="14" />
+    <Property Name="AthleticDirEmail" Type="nvarchar" MaxLength="60" />
+    <Property Name="AthleticDirFax" Type="nvarchar" MaxLength="14" />
+    <Property Name="SportsInfoDir" Type="nvarchar(max)" />
+    <Property Name="SIDPhone" Type="nvarchar(max)" />
+    <Property Name="SIDFax" Type="nvarchar(max)" />
+    <Property Name="SIDEmail" Type="nvarchar(max)" />
+    <Property Name="Trainer" Type="nvarchar" MaxLength="150" />
+    <Property Name="TrainerPhone" Type="nvarchar" MaxLength="14" />
+    <Property Name="StrengthCoach" Type="nvarchar" MaxLength="150" />
+    <Property Name="StrCoachPhone" Type="nvarchar" MaxLength="14" />
+    <Property Name="EquipManager" Type="nvarchar" MaxLength="150" />
+    <Property Name="EquipManagerPhone" Type="nvarchar" MaxLength="14" />
+    <Property Name="PressBoxPhone" Type="nvarchar" MaxLength="14" />
+    <Property Name="NationalGradedPlayers" Type="int" />
+    <Property Name="FalconsGradedPlayers" Type="int" />
+    <Property Name="PrimaryScoutID" Type="int" />
+    <Property Name="SecondaryScoutID" Type="int" />
+    <Property Name="BowlGame" Type="nvarchar" MaxLength="100" />
+    <Property Name="GradDate" Type="datetime" />
+    <Property Name="HomeField" Type="nvarchar" MaxLength="100" />
+    <Property Name="Capacity" Type="int" />
+    <Property Name="Surface" Type="nvarchar" MaxLength="100" />
+    <Property Name="SchoolColors" Type="nvarchar" MaxLength="100" />
+    <Property Name="FBWebsite" Type="nvarchar" MaxLength="100" />
+    <Property Name="TransmitFlag" Type="bit" Nullable="false" />
+    <Property Name="BowlGameDate" Type="datetime" />
+    <Property Name="BowlGameText" Type="nvarchar" MaxLength="500" />
+    <Property Name="BowlGameOpponent" Type="nvarchar" MaxLength="200" />
+    <Property Name="BowlGameTV" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsNew" Type="bit" Nullable="false" />
+    <Property Name="WorkoutDate" Type="datetime" />
+    <Property Name="WorkoutDate2" Type="datetime" />
+    <Property Name="ProLiaison" Type="nvarchar" MaxLength="150" />
+    <Property Name="ProLiaisonPhone" Type="nvarchar" MaxLength="14" />
+    <Property Name="Secretary" Type="nvarchar" MaxLength="150" />
+    <Property Name="SecretaryPhone" Type="nvarchar" MaxLength="14" />
+    <Property Name="PrimaryAreaScoutID" Type="nvarchar" MaxLength="4" />
+    <Property Name="RegionalScoutID" Type="nvarchar" MaxLength="4" />
+    <Property Name="Misc1" Type="nvarchar" MaxLength="100" />
+    <Property Name="Misc2" Type="nvarchar" MaxLength="100" />
+    <Property Name="Misc3" Type="nvarchar" MaxLength="100" />
+    <Property Name="RivalsURL" Type="nvarchar" MaxLength="100" />
+    <Property Name="RivalsAltURL" Type="nvarchar" MaxLength="100" />
+    <Property Name="Comments" Type="nvarchar(max)" />
+    <Property Name="InstitutionID" Type="int" />
+    <Property Name="BCSSchool" Type="bit" Nullable="false" />
+    <Property Name="HideBirthdate" Type="bit" Nullable="false" />
+    <Property Name="NFLSchoolID" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="Restrictions" Type="nvarchar(max)" />
+    <Property Name="ClosedDates" Type="nvarchar(max)" />
+    <Property Name="InSeasonSchedule" Type="nvarchar(max)" />
+    <Property Name="RestrictionsCompleted" Type="datetime" />
+    <Property Name="RestrictionsCompletedBy" Type="nvarchar" MaxLength="4" />
+    <Property Name="FootballAddress" Type="nvarchar" MaxLength="450" />
+    <Property Name="isAPT" Type="bit" Nullable="false" />
+    <Property Name="APTClub" Type="nvarchar" MaxLength="3" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="50" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="50" />
+    <Property Name="HBCU" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ScoutAssistant.dbo.vwSchoolPartialList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwSchoolPartialList">
+    <Key>
+      <PropertyRef Name="SchoolCode" />
+      <PropertyRef Name="ScoutArea" />
+      <PropertyRef Name="SchoolShortName" />
+      <PropertyRef Name="GreenBookName" />
+      <PropertyRef Name="NickName" />
+      <PropertyRef Name="NFLSchoolID" />
+      <PropertyRef Name="ESPN_ID" />
+    </Key>
+    <Property Name="SchoolCode" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="ScoutArea" Type="int" Nullable="false" />
+    <Property Name="School" Type="nvarchar" MaxLength="100" />
+    <Property Name="SchoolShortName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="GreenBookName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Association" Type="nvarchar" MaxLength="100" />
+    <Property Name="Division" Type="nvarchar" MaxLength="100" />
+    <Property Name="Conference" Type="nvarchar" MaxLength="100" />
+    <Property Name="QuestionaireFileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="SchoolAddress" Type="nvarchar" MaxLength="450" />
+    <Property Name="FootballAddress" Type="nvarchar" MaxLength="450" />
+    <Property Name="HeadCoachName" Type="nvarchar" MaxLength="150" />
+    <Property Name="AssistantCoaches" Type="nvarchar(max)" />
+    <Property Name="VideoDirector" Type="nvarchar" MaxLength="150" />
+    <Property Name="AthleticDir" Type="nvarchar" MaxLength="150" />
+    <Property Name="SportsInfoDir" Type="nvarchar(max)" />
+    <Property Name="ProLiaison" Type="nvarchar" MaxLength="150" />
+    <Property Name="NationalGradedPlayers" Type="int" />
+    <Property Name="FalconsGradedPlayers" Type="int" />
+    <Property Name="WorkoutDate" Type="datetime" />
+    <Property Name="WorkoutDate2" Type="datetime" />
+    <Property Name="PrimaryScoutID" Type="int" />
+    <Property Name="SecondaryScoutID" Type="int" />
+    <Property Name="PrimaryAreaScoutID" Type="nvarchar" MaxLength="4" />
+    <Property Name="RegionalScoutID" Type="nvarchar" MaxLength="4" />
+    <Property Name="FBWebsite" Type="nvarchar" MaxLength="100" />
+    <Property Name="RivalsURL" Type="nvarchar" MaxLength="100" />
+    <Property Name="RivalsAltURL" Type="nvarchar" MaxLength="100" />
+    <Property Name="NFLSchoolID" Type="int" Nullable="false" />
+    <Property Name="ESPN_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ScoutAssistant.dbo.vwSchoolPersonnelList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwSchoolPersonnelList">
+    <Key>
+      <PropertyRef Name="PersonId" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="IsAssistant" />
+    </Key>
+    <Property Name="SchoolId" Type="int" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="TitlesHeld" Type="nvarchar(max)" />
+    <Property Name="TitlesHeldIds" Type="nvarchar(max)" />
+    <Property Name="Prefix" Type="nvarchar" MaxLength="10" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="40" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Suffix" Type="nvarchar" MaxLength="10" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="14" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="14" />
+    <Property Name="Email" Type="nvarchar" MaxLength="60" />
+    <Property Name="IsAssistant" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ScoutAssistant.dbo.vwSchoolPlayerList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwSchoolPlayerList">
+    <Key>
+      <PropertyRef Name="SchoolId" />
+      <PropertyRef Name="PersonId" />
+      <PropertyRef Name="PlayerId" />
+      <PropertyRef Name="SchoolCode" />
+      <PropertyRef Name="ScoutArea" />
+      <PropertyRef Name="SchoolName" />
+      <PropertyRef Name="GreenBookName" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="PlayerDateModified" />
+      <PropertyRef Name="PersonDateModified" />
+    </Key>
+    <Property Name="SchoolId" Type="int" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="PlayerId" Type="int" Nullable="false" />
+    <Property Name="SchoolCode" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="ScoutArea" Type="int" Nullable="false" />
+    <Property Name="SchoolName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="GreenBookName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Prefix" Type="nvarchar" MaxLength="10" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="40" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Suffix" Type="nvarchar" MaxLength="10" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="14" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="14" />
+    <Property Name="Email" Type="nvarchar" MaxLength="60" />
+    <Property Name="Jersey" Type="int" />
+    <Property Name="Eligibility" Type="nvarchar" MaxLength="2" />
+    <Property Name="HometownCity" Type="nvarchar" MaxLength="50" />
+    <Property Name="HometownState" Type="nvarchar" MaxLength="2" />
+    <Property Name="Height" Type="int" />
+    <Property Name="Weight" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Speed" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Position" Type="nvarchar" MaxLength="50" />
+    <Property Name="PlayerDateModified" Type="datetime" Nullable="false" />
+    <Property Name="PersonDateModified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Addresses_AddressTypes">
+    <End Role="AddressTypes" Type="Self.AddressTypes" Multiplicity="1" />
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AddressTypes">
+        <PropertyRef Name="AddressTypeId" />
+      </Principal>
+      <Dependent Role="Addresses">
+        <PropertyRef Name="AddressTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_DocumentTypes">
+    <End Role="DocumentTypes" Type="Self.DocumentTypes" Multiplicity="1" />
+    <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentTypes">
+        <PropertyRef Name="DocumentTypeId" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="DocumentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Players_Persons">
+    <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persons">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Players_School">
+    <End Role="Schools" Type="Self.Schools" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schools">
+        <PropertyRef Name="SchoolId" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SchoolPersonnel_Person">
+    <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
+    <End Role="SchoolPersonnel" Type="Self.SchoolPersonnel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persons">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="SchoolPersonnel">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SchoolPersonnel_School">
+    <End Role="Schools" Type="Self.Schools" Multiplicity="1" />
+    <End Role="SchoolPersonnel" Type="Self.SchoolPersonnel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schools">
+        <PropertyRef Name="SchoolId" />
+      </Principal>
+      <Dependent Role="SchoolPersonnel">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_Addresses">
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="1" />
+    <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="AddressId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_Associations">
+    <End Role="Associations" Type="Self.Associations" Multiplicity="1" />
+    <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associations">
+        <PropertyRef Name="AssociationsId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="AssociationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_BowlGames">
+    <End Role="BowlGames" Type="Self.BowlGames" Multiplicity="0..1" />
+    <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BowlGames">
+        <PropertyRef Name="BowlGamesId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="BowlGameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_Conferences">
+    <End Role="Conferences" Type="Self.Conferences" Multiplicity="1" />
+    <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conferences">
+        <PropertyRef Name="ConferenceId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="ConferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_Divisions">
+    <End Role="Divisions" Type="Self.Divisions" Multiplicity="1" />
+    <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Divisions">
+        <PropertyRef Name="DivisionsId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="DivisionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_Documents">
+    <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
+    <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documents">
+        <PropertyRef Name="DocumentId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="QuestionaireId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_Fields">
+    <End Role="Fields" Type="Self.Fields" Multiplicity="0..1" />
+    <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fields">
+        <PropertyRef Name="FieldsId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="FieldId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_FootballAddress">
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="1" />
+    <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="AddressId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="FootballAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_PrimaryAreaScout">
+    <End Role="Scouts" Type="Self.Scouts" Multiplicity="0..1" />
+    <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scouts">
+        <PropertyRef Name="ScoutId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="PrimaryAreaScoutId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_PrimaryScout">
+    <End Role="Scouts" Type="Self.Scouts" Multiplicity="0..1" />
+    <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scouts">
+        <PropertyRef Name="ScoutId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="PrimaryScoutId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_RegionalScout">
+    <End Role="Scouts" Type="Self.Scouts" Multiplicity="0..1" />
+    <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scouts">
+        <PropertyRef Name="ScoutId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="RegionalScoutId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_SecondaryScout">
+    <End Role="Scouts" Type="Self.Scouts" Multiplicity="0..1" />
+    <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scouts">
+        <PropertyRef Name="ScoutId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="SecondaryScoutId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScoutAssignments_School">
+    <End Role="Schools" Type="Self.Schools" Multiplicity="1" />
+    <End Role="ScoutAssignments" Type="Self.ScoutAssignments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schools">
+        <PropertyRef Name="SchoolId" />
+      </Principal>
+      <Dependent Role="ScoutAssignments">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScoutAssignments_Scout">
+    <End Role="Scouts" Type="Self.Scouts" Multiplicity="1" />
+    <End Role="ScoutAssignments" Type="Self.ScoutAssignments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scouts">
+        <PropertyRef Name="ScoutId" />
+      </Principal>
+      <Dependent Role="ScoutAssignments">
+        <PropertyRef Name="ScoutId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EFStoreContainer">
+    <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AddressTypes" EntityType="Self.AddressTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Associations" EntityType="Self.Associations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BowlGames" EntityType="Self.BowlGames" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Conferences" EntityType="Self.Conferences" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Divisions" EntityType="Self.Divisions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentTypes" EntityType="Self.DocumentTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fields" EntityType="Self.Fields" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Persons" EntityType="Self.Persons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SchoolPersonnel" EntityType="Self.SchoolPersonnel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Schools" EntityType="Self.Schools" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScoutAssignments" EntityType="Self.ScoutAssignments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Scouts" EntityType="Self.Scouts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Titles" EntityType="Self.Titles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vwSchoolFullList" EntityType="Self.vwSchoolFullList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwSchoolFullList].[SchoolCode] AS [SchoolCode], 
+    [vwSchoolFullList].[ScoutArea] AS [ScoutArea], 
+    [vwSchoolFullList].[School] AS [School], 
+    [vwSchoolFullList].[ESPN_ID] AS [ESPN_ID], 
+    [vwSchoolFullList].[SchoolShortName] AS [SchoolShortName], 
+    [vwSchoolFullList].[GreenBookName] AS [GreenBookName], 
+    [vwSchoolFullList].[NickName] AS [NickName], 
+    [vwSchoolFullList].[Association] AS [Association], 
+    [vwSchoolFullList].[Division] AS [Division], 
+    [vwSchoolFullList].[Conference] AS [Conference], 
+    [vwSchoolFullList].[QuestionaireFileName] AS [QuestionaireFileName], 
+    [vwSchoolFullList].[AddressLine1] AS [AddressLine1], 
+    [vwSchoolFullList].[City] AS [City], 
+    [vwSchoolFullList].[State] AS [State], 
+    [vwSchoolFullList].[ZipCode] AS [ZipCode], 
+    [vwSchoolFullList].[Country] AS [Country], 
+    [vwSchoolFullList].[HeadCoachName] AS [HeadCoachName], 
+    [vwSchoolFullList].[HeadCoachPhone] AS [HeadCoachPhone], 
+    [vwSchoolFullList].[HeadCoachEmail] AS [HeadCoachEmail], 
+    [vwSchoolFullList].[AssistantCoaches] AS [AssistantCoaches], 
+    [vwSchoolFullList].[AssistantPhone] AS [AssistantPhone], 
+    [vwSchoolFullList].[VideoDirector] AS [VideoDirector], 
+    [vwSchoolFullList].[VideoDirPhone] AS [VideoDirPhone], 
+    [vwSchoolFullList].[AthleticDir] AS [AthleticDir], 
+    [vwSchoolFullList].[AthleticDirPhone] AS [AthleticDirPhone], 
+    [vwSchoolFullList].[AthleticDirEmail] AS [AthleticDirEmail], 
+    [vwSchoolFullList].[AthleticDirFax] AS [AthleticDirFax], 
+    [vwSchoolFullList].[SportsInfoDir] AS [SportsInfoDir], 
+    [vwSchoolFullList].[SIDPhone] AS [SIDPhone], 
+    [vwSchoolFullList].[SIDFax] AS [SIDFax], 
+    [vwSchoolFullList].[SIDEmail] AS [SIDEmail], 
+    [vwSchoolFullList].[Trainer] AS [Trainer], 
+    [vwSchoolFullList].[TrainerPhone] AS [TrainerPhone], 
+    [vwSchoolFullList].[StrengthCoach] AS [StrengthCoach], 
+    [vwSchoolFullList].[StrCoachPhone] AS [StrCoachPhone], 
+    [vwSchoolFullList].[EquipManager] AS [EquipManager], 
+    [vwSchoolFullList].[EquipManagerPhone] AS [EquipManagerPhone], 
+    [vwSchoolFullList].[PressBoxPhone] AS [PressBoxPhone], 
+    [vwSchoolFullList].[NationalGradedPlayers] AS [NationalGradedPlayers], 
+    [vwSchoolFullList].[FalconsGradedPlayers] AS [FalconsGradedPlayers], 
+    [vwSchoolFullList].[PrimaryScoutID] AS [PrimaryScoutID], 
+    [vwSchoolFullList].[SecondaryScoutID] AS [SecondaryScoutID], 
+    [vwSchoolFullList].[BowlGame] AS [BowlGame], 
+    [vwSchoolFullList].[GradDate] AS [GradDate], 
+    [vwSchoolFullList].[HomeField] AS [HomeField], 
+    [vwSchoolFullList].[Capacity] AS [Capacity], 
+    [vwSchoolFullList].[Surface] AS [Surface], 
+    [vwSchoolFullList].[SchoolColors] AS [SchoolColors], 
+    [vwSchoolFullList].[FBWebsite] AS [FBWebsite], 
+    [vwSchoolFullList].[TransmitFlag] AS [TransmitFlag], 
+    [vwSchoolFullList].[BowlGameDate] AS [BowlGameDate], 
+    [vwSchoolFullList].[BowlGameText] AS [BowlGameText], 
+    [vwSchoolFullList].[BowlGameOpponent] AS [BowlGameOpponent], 
+    [vwSchoolFullList].[BowlGameTV] AS [BowlGameTV], 
+    [vwSchoolFullList].[IsNew] AS [IsNew], 
+    [vwSchoolFullList].[WorkoutDate] AS [WorkoutDate], 
+    [vwSchoolFullList].[WorkoutDate2] AS [WorkoutDate2], 
+    [vwSchoolFullList].[ProLiaison] AS [ProLiaison], 
+    [vwSchoolFullList].[ProLiaisonPhone] AS [ProLiaisonPhone], 
+    [vwSchoolFullList].[Secretary] AS [Secretary], 
+    [vwSchoolFullList].[SecretaryPhone] AS [SecretaryPhone], 
+    [vwSchoolFullList].[PrimaryAreaScoutID] AS [PrimaryAreaScoutID], 
+    [vwSchoolFullList].[RegionalScoutID] AS [RegionalScoutID], 
+    [vwSchoolFullList].[Misc1] AS [Misc1], 
+    [vwSchoolFullList].[Misc2] AS [Misc2], 
+    [vwSchoolFullList].[Misc3] AS [Misc3], 
+    [vwSchoolFullList].[RivalsURL] AS [RivalsURL], 
+    [vwSchoolFullList].[RivalsAltURL] AS [RivalsAltURL], 
+    [vwSchoolFullList].[Comments] AS [Comments], 
+    [vwSchoolFullList].[InstitutionID] AS [InstitutionID], 
+    [vwSchoolFullList].[BCSSchool] AS [BCSSchool], 
+    [vwSchoolFullList].[HideBirthdate] AS [HideBirthdate], 
+    [vwSchoolFullList].[NFLSchoolID] AS [NFLSchoolID], 
+    [vwSchoolFullList].[Notes] AS [Notes], 
+    [vwSchoolFullList].[Restrictions] AS [Restrictions], 
+    [vwSchoolFullList].[ClosedDates] AS [ClosedDates], 
+    [vwSchoolFullList].[InSeasonSchedule] AS [InSeasonSchedule], 
+    [vwSchoolFullList].[RestrictionsCompleted] AS [RestrictionsCompleted], 
+    [vwSchoolFullList].[RestrictionsCompletedBy] AS [RestrictionsCompletedBy], 
+    [vwSchoolFullList].[FootballAddress] AS [FootballAddress], 
+    [vwSchoolFullList].[isAPT] AS [isAPT], 
+    [vwSchoolFullList].[APTClub] AS [APTClub], 
+    [vwSchoolFullList].[Latitude] AS [Latitude], 
+    [vwSchoolFullList].[Longitude] AS [Longitude], 
+    [vwSchoolFullList].[HBCU] AS [HBCU]
+    FROM [dbo].[vwSchoolFullList] AS [vwSchoolFullList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwSchoolPartialList" EntityType="Self.vwSchoolPartialList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwSchoolPartialList].[SchoolCode] AS [SchoolCode], 
+    [vwSchoolPartialList].[ScoutArea] AS [ScoutArea], 
+    [vwSchoolPartialList].[School] AS [School], 
+    [vwSchoolPartialList].[SchoolShortName] AS [SchoolShortName], 
+    [vwSchoolPartialList].[GreenBookName] AS [GreenBookName], 
+    [vwSchoolPartialList].[NickName] AS [NickName], 
+    [vwSchoolPartialList].[Association] AS [Association], 
+    [vwSchoolPartialList].[Division] AS [Division], 
+    [vwSchoolPartialList].[Conference] AS [Conference], 
+    [vwSchoolPartialList].[QuestionaireFileName] AS [QuestionaireFileName], 
+    [vwSchoolPartialList].[SchoolAddress] AS [SchoolAddress], 
+    [vwSchoolPartialList].[FootballAddress] AS [FootballAddress], 
+    [vwSchoolPartialList].[HeadCoachName] AS [HeadCoachName], 
+    [vwSchoolPartialList].[AssistantCoaches] AS [AssistantCoaches], 
+    [vwSchoolPartialList].[VideoDirector] AS [VideoDirector], 
+    [vwSchoolPartialList].[AthleticDir] AS [AthleticDir], 
+    [vwSchoolPartialList].[SportsInfoDir] AS [SportsInfoDir], 
+    [vwSchoolPartialList].[ProLiaison] AS [ProLiaison], 
+    [vwSchoolPartialList].[NationalGradedPlayers] AS [NationalGradedPlayers], 
+    [vwSchoolPartialList].[FalconsGradedPlayers] AS [FalconsGradedPlayers], 
+    [vwSchoolPartialList].[WorkoutDate] AS [WorkoutDate], 
+    [vwSchoolPartialList].[WorkoutDate2] AS [WorkoutDate2], 
+    [vwSchoolPartialList].[PrimaryScoutID] AS [PrimaryScoutID], 
+    [vwSchoolPartialList].[SecondaryScoutID] AS [SecondaryScoutID], 
+    [vwSchoolPartialList].[PrimaryAreaScoutID] AS [PrimaryAreaScoutID], 
+    [vwSchoolPartialList].[RegionalScoutID] AS [RegionalScoutID], 
+    [vwSchoolPartialList].[FBWebsite] AS [FBWebsite], 
+    [vwSchoolPartialList].[RivalsURL] AS [RivalsURL], 
+    [vwSchoolPartialList].[RivalsAltURL] AS [RivalsAltURL], 
+    [vwSchoolPartialList].[NFLSchoolID] AS [NFLSchoolID], 
+    [vwSchoolPartialList].[ESPN_ID] AS [ESPN_ID]
+    FROM [dbo].[vwSchoolPartialList] AS [vwSchoolPartialList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwSchoolPersonnelList" EntityType="Self.vwSchoolPersonnelList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwSchoolPersonnelList].[SchoolId] AS [SchoolId], 
+    [vwSchoolPersonnelList].[PersonId] AS [PersonId], 
+    [vwSchoolPersonnelList].[TitlesHeld] AS [TitlesHeld], 
+    [vwSchoolPersonnelList].[TitlesHeldIds] AS [TitlesHeldIds], 
+    [vwSchoolPersonnelList].[Prefix] AS [Prefix], 
+    [vwSchoolPersonnelList].[FirstName] AS [FirstName], 
+    [vwSchoolPersonnelList].[MiddleName] AS [MiddleName], 
+    [vwSchoolPersonnelList].[LastName] AS [LastName], 
+    [vwSchoolPersonnelList].[Suffix] AS [Suffix], 
+    [vwSchoolPersonnelList].[FullName] AS [FullName], 
+    [vwSchoolPersonnelList].[Phone] AS [Phone], 
+    [vwSchoolPersonnelList].[Fax] AS [Fax], 
+    [vwSchoolPersonnelList].[Email] AS [Email], 
+    [vwSchoolPersonnelList].[IsAssistant] AS [IsAssistant]
+    FROM [dbo].[vwSchoolPersonnelList] AS [vwSchoolPersonnelList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwSchoolPlayerList" EntityType="Self.vwSchoolPlayerList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwSchoolPlayerList].[SchoolId] AS [SchoolId], 
+    [vwSchoolPlayerList].[PersonId] AS [PersonId], 
+    [vwSchoolPlayerList].[PlayerId] AS [PlayerId], 
+    [vwSchoolPlayerList].[SchoolCode] AS [SchoolCode], 
+    [vwSchoolPlayerList].[ScoutArea] AS [ScoutArea], 
+    [vwSchoolPlayerList].[SchoolName] AS [SchoolName], 
+    [vwSchoolPlayerList].[GreenBookName] AS [GreenBookName], 
+    [vwSchoolPlayerList].[Prefix] AS [Prefix], 
+    [vwSchoolPlayerList].[FirstName] AS [FirstName], 
+    [vwSchoolPlayerList].[MiddleName] AS [MiddleName], 
+    [vwSchoolPlayerList].[LastName] AS [LastName], 
+    [vwSchoolPlayerList].[Suffix] AS [Suffix], 
+    [vwSchoolPlayerList].[FullName] AS [FullName], 
+    [vwSchoolPlayerList].[Phone] AS [Phone], 
+    [vwSchoolPlayerList].[Fax] AS [Fax], 
+    [vwSchoolPlayerList].[Email] AS [Email], 
+    [vwSchoolPlayerList].[Jersey] AS [Jersey], 
+    [vwSchoolPlayerList].[Eligibility] AS [Eligibility], 
+    [vwSchoolPlayerList].[HometownCity] AS [HometownCity], 
+    [vwSchoolPlayerList].[HometownState] AS [HometownState], 
+    [vwSchoolPlayerList].[Height] AS [Height], 
+    [vwSchoolPlayerList].[Weight] AS [Weight], 
+    [vwSchoolPlayerList].[Speed] AS [Speed], 
+    [vwSchoolPlayerList].[Position] AS [Position], 
+    [vwSchoolPlayerList].[PlayerDateModified] AS [PlayerDateModified], 
+    [vwSchoolPlayerList].[PersonDateModified] AS [PersonDateModified]
+    FROM [dbo].[vwSchoolPlayerList] AS [vwSchoolPlayerList]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Addresses_AddressTypes" Association="Self.FK_Addresses_AddressTypes">
+      <End Role="AddressTypes" EntitySet="AddressTypes" />
+      <End Role="Addresses" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_DocumentTypes" Association="Self.FK_Documents_DocumentTypes">
+      <End Role="DocumentTypes" EntitySet="DocumentTypes" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Players_Persons" Association="Self.FK_Players_Persons">
+      <End Role="Persons" EntitySet="Persons" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Players_School" Association="Self.FK_Players_School">
+      <End Role="Schools" EntitySet="Schools" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SchoolPersonnel_Person" Association="Self.FK_SchoolPersonnel_Person">
+      <End Role="Persons" EntitySet="Persons" />
+      <End Role="SchoolPersonnel" EntitySet="SchoolPersonnel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SchoolPersonnel_School" Association="Self.FK_SchoolPersonnel_School">
+      <End Role="Schools" EntitySet="Schools" />
+      <End Role="SchoolPersonnel" EntitySet="SchoolPersonnel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_Addresses" Association="Self.FK_Schools_Addresses">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_Associations" Association="Self.FK_Schools_Associations">
+      <End Role="Associations" EntitySet="Associations" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_BowlGames" Association="Self.FK_Schools_BowlGames">
+      <End Role="BowlGames" EntitySet="BowlGames" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_Conferences" Association="Self.FK_Schools_Conferences">
+      <End Role="Conferences" EntitySet="Conferences" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_Divisions" Association="Self.FK_Schools_Divisions">
+      <End Role="Divisions" EntitySet="Divisions" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_Documents" Association="Self.FK_Schools_Documents">
+      <End Role="Documents" EntitySet="Documents" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_Fields" Association="Self.FK_Schools_Fields">
+      <End Role="Fields" EntitySet="Fields" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_FootballAddress" Association="Self.FK_Schools_FootballAddress">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_PrimaryAreaScout" Association="Self.FK_Schools_PrimaryAreaScout">
+      <End Role="Scouts" EntitySet="Scouts" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_PrimaryScout" Association="Self.FK_Schools_PrimaryScout">
+      <End Role="Scouts" EntitySet="Scouts" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_RegionalScout" Association="Self.FK_Schools_RegionalScout">
+      <End Role="Scouts" EntitySet="Scouts" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_SecondaryScout" Association="Self.FK_Schools_SecondaryScout">
+      <End Role="Scouts" EntitySet="Scouts" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScoutAssignments_School" Association="Self.FK_ScoutAssignments_School">
+      <End Role="Schools" EntitySet="Schools" />
+      <End Role="ScoutAssignments" EntitySet="ScoutAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScoutAssignments_Scout" Association="Self.FK_ScoutAssignments_Scout">
+      <End Role="Scouts" EntitySet="Scouts" />
+      <End Role="ScoutAssignments" EntitySet="ScoutAssignments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

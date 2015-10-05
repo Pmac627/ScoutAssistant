@@ -1,0 +1,849 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EF" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressId" />
+    </Key>
+    <Property Name="AddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AddressTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AddressType" Relationship="Self.FK_Addresses_AddressTypes" FromRole="Addresses" ToRole="AddressTypes" />
+    <NavigationProperty Name="Schools" Relationship="Self.FK_Schools_Addresses" FromRole="Addresses" ToRole="Schools" />
+    <NavigationProperty Name="Schools1" Relationship="Self.FK_Schools_FootballAddress" FromRole="Addresses" ToRole="Schools" />
+  </EntityType>
+  <EntityType Name="AddressType">
+    <Key>
+      <PropertyRef Name="AddressTypeId" />
+    </Key>
+    <Property Name="AddressTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LongName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Addresses" Relationship="Self.FK_Addresses_AddressTypes" FromRole="AddressTypes" ToRole="Addresses" />
+  </EntityType>
+  <EntityType Name="Association">
+    <Key>
+      <PropertyRef Name="AssociationsId" />
+    </Key>
+    <Property Name="AssociationsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LongName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Schools" Relationship="Self.FK_Schools_Associations" FromRole="Associations" ToRole="Schools" />
+  </EntityType>
+  <EntityType Name="BowlGame">
+    <Key>
+      <PropertyRef Name="BowlGamesId" />
+    </Key>
+    <Property Name="BowlGamesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LongName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GameDate" Type="DateTime" Precision="3" />
+    <Property Name="GameText" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="GameOpponent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GameTV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Schools" Relationship="Self.FK_Schools_BowlGames" FromRole="BowlGames" ToRole="Schools" />
+  </EntityType>
+  <EntityType Name="Conference">
+    <Key>
+      <PropertyRef Name="ConferenceId" />
+    </Key>
+    <Property Name="ConferenceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LongName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Schools" Relationship="Self.FK_Schools_Conferences" FromRole="Conferences" ToRole="Schools" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="DivisionsId" />
+    </Key>
+    <Property Name="DivisionsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LongName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Schools" Relationship="Self.FK_Schools_Divisions" FromRole="Divisions" ToRole="Schools" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="DocumentId" />
+    </Key>
+    <Property Name="DocumentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentTypeId" Type="Int32" Nullable="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FileType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="DocumentType" Relationship="Self.FK_Documents_DocumentTypes" FromRole="Documents" ToRole="DocumentTypes" />
+    <NavigationProperty Name="Schools" Relationship="Self.FK_Schools_Documents" FromRole="Documents" ToRole="Schools" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="DocumentTypeId" />
+    </Key>
+    <Property Name="DocumentTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LongName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Documents" Relationship="Self.FK_Documents_DocumentTypes" FromRole="DocumentTypes" ToRole="Documents" />
+  </EntityType>
+  <EntityType Name="Field">
+    <Key>
+      <PropertyRef Name="FieldsId" />
+    </Key>
+    <Property Name="FieldsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LongName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Capacity" Type="Int32" />
+    <Property Name="Surface" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Schools" Relationship="Self.FK_Schools_Fields" FromRole="Fields" ToRole="Schools" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prefix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Suffix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Players_Persons" FromRole="Persons" ToRole="Players" />
+    <NavigationProperty Name="SchoolPersonnels" Relationship="Self.FK_SchoolPersonnel_Person" FromRole="Persons" ToRole="SchoolPersonnel" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="PlayerId" />
+    </Key>
+    <Property Name="PlayerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <Property Name="SchoolId" Type="Int32" Nullable="false" />
+    <Property Name="Jersey" Type="Int32" />
+    <Property Name="Eligibility" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="HometownCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HometownState" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="Height" Type="Int32" />
+    <Property Name="Weight" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Speed" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Person" Relationship="Self.FK_Players_Persons" FromRole="Players" ToRole="Persons" />
+    <NavigationProperty Name="School" Relationship="Self.FK_Players_School" FromRole="Players" ToRole="Schools" />
+  </EntityType>
+  <EntityType Name="SchoolPersonnel">
+    <Key>
+      <PropertyRef Name="SchoolId" />
+      <PropertyRef Name="PersonId" />
+      <PropertyRef Name="TitleId" />
+    </Key>
+    <Property Name="SchoolId" Type="Int32" Nullable="false" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <Property Name="TitleId" Type="Int32" Nullable="false" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Person" Relationship="Self.FK_SchoolPersonnel_Person" FromRole="SchoolPersonnel" ToRole="Persons" />
+    <NavigationProperty Name="School" Relationship="Self.FK_SchoolPersonnel_School" FromRole="SchoolPersonnel" ToRole="Schools" />
+  </EntityType>
+  <EntityType Name="School">
+    <Key>
+      <PropertyRef Name="SchoolId" />
+    </Key>
+    <Property Name="SchoolId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ScoutArea" Type="Int32" Nullable="false" />
+    <Property Name="School1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ESPNId" Type="Int32" Nullable="false" />
+    <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GreenBookName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NickName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AssociationId" Type="Int32" Nullable="false" />
+    <Property Name="DivisionId" Type="Int32" Nullable="false" />
+    <Property Name="ConferenceId" Type="Int32" Nullable="false" />
+    <Property Name="QuestionaireId" Type="Int32" />
+    <Property Name="AddressId" Type="Int32" Nullable="false" />
+    <Property Name="PressBoxPhone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="NationalGradedPlayers" Type="Int32" />
+    <Property Name="FalconsGradedPlayers" Type="Int32" />
+    <Property Name="PrimaryScoutId" Type="Int32" />
+    <Property Name="SecondaryScoutId" Type="Int32" />
+    <Property Name="BowlGameId" Type="Int32" />
+    <Property Name="GraduationDate" Type="DateTime" Precision="3" />
+    <Property Name="FieldId" Type="Int32" />
+    <Property Name="SchoolColors" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TransmitFlag" Type="Boolean" Nullable="false" />
+    <Property Name="IsNew" Type="Boolean" Nullable="false" />
+    <Property Name="WorkoutDate" Type="DateTime" Precision="3" />
+    <Property Name="WorkoutDate2" Type="DateTime" Precision="3" />
+    <Property Name="PrimaryAreaScoutId" Type="Int32" />
+    <Property Name="RegionalScoutId" Type="Int32" />
+    <Property Name="Misc1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Misc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Misc3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RivalsUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RivalsAltUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InstitutionId" Type="Int32" />
+    <Property Name="BCSSchool" Type="Boolean" Nullable="false" />
+    <Property Name="HideBirthdate" Type="Boolean" Nullable="false" />
+    <Property Name="NFLSchoolId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Restrictions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClosedDates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InSeasonSchedule" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RestrictionsCompleted" Type="DateTime" Precision="3" />
+    <Property Name="RestrictionsCompletedBy" Type="Int32" />
+    <Property Name="FootballAddressId" Type="Int32" Nullable="false" />
+    <Property Name="isAPT" Type="Boolean" Nullable="false" />
+    <Property Name="APTClub" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="HBCU" Type="Boolean" Nullable="false" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Address" Relationship="Self.FK_Schools_Addresses" FromRole="Schools" ToRole="Addresses" />
+    <NavigationProperty Name="Address1" Relationship="Self.FK_Schools_FootballAddress" FromRole="Schools" ToRole="Addresses" />
+    <NavigationProperty Name="Association" Relationship="Self.FK_Schools_Associations" FromRole="Schools" ToRole="Associations" />
+    <NavigationProperty Name="BowlGame" Relationship="Self.FK_Schools_BowlGames" FromRole="Schools" ToRole="BowlGames" />
+    <NavigationProperty Name="Conference" Relationship="Self.FK_Schools_Conferences" FromRole="Schools" ToRole="Conferences" />
+    <NavigationProperty Name="Division" Relationship="Self.FK_Schools_Divisions" FromRole="Schools" ToRole="Divisions" />
+    <NavigationProperty Name="Document" Relationship="Self.FK_Schools_Documents" FromRole="Schools" ToRole="Documents" />
+    <NavigationProperty Name="Field" Relationship="Self.FK_Schools_Fields" FromRole="Schools" ToRole="Fields" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Players_School" FromRole="Schools" ToRole="Players" />
+    <NavigationProperty Name="SchoolPersonnels" Relationship="Self.FK_SchoolPersonnel_School" FromRole="Schools" ToRole="SchoolPersonnel" />
+    <NavigationProperty Name="ScoutAssignments" Relationship="Self.FK_ScoutAssignments_School" FromRole="Schools" ToRole="ScoutAssignments" />
+    <NavigationProperty Name="Scout" Relationship="EF.FK_Schools_PrimaryAreaScout" FromRole="School" ToRole="Scout" />
+    <NavigationProperty Name="Scout1" Relationship="EF.FK_Schools_PrimaryScout" FromRole="School" ToRole="Scout" />
+    <NavigationProperty Name="Scout2" Relationship="EF.FK_Schools_RegionalScout" FromRole="School" ToRole="Scout" />
+    <NavigationProperty Name="Scout3" Relationship="EF.FK_Schools_SecondaryScout" FromRole="School" ToRole="Scout" />
+  </EntityType>
+  <EntityType Name="ScoutAssignment">
+    <Key>
+      <PropertyRef Name="ScoutId" />
+      <PropertyRef Name="SchoolId" />
+    </Key>
+    <Property Name="ScoutId" Type="Int32" Nullable="false" />
+    <Property Name="SchoolId" Type="Int32" Nullable="false" />
+    <Property Name="Priority" Type="Int32" Nullable="false" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="School" Relationship="Self.FK_ScoutAssignments_School" FromRole="ScoutAssignments" ToRole="Schools" />
+    <NavigationProperty Name="Scout" Relationship="EF.FK_ScoutAssignments_Scout" FromRole="ScoutAssignment" ToRole="Scout" />
+  </EntityType>
+  <EntityType Name="Title">
+    <Key>
+      <PropertyRef Name="TitlesId" />
+    </Key>
+    <Property Name="TitlesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LongName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwSchoolPersonnelList">
+    <Key>
+      <PropertyRef Name="PersonId" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="IsAssistant" />
+    </Key>
+    <Property Name="SchoolId" Type="Int32" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <Property Name="TitlesHeld" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TitlesHeldIds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prefix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Suffix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="IsAssistant" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Addresses_AddressTypes">
+    <End Role="AddressTypes" Type="Self.AddressType" Multiplicity="1" />
+    <End Role="Addresses" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AddressTypes">
+        <PropertyRef Name="AddressTypeId" />
+      </Principal>
+      <Dependent Role="Addresses">
+        <PropertyRef Name="AddressTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_Addresses">
+    <End Role="Addresses" Type="Self.Address" Multiplicity="1" />
+    <End Role="Schools" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="AddressId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_FootballAddress">
+    <End Role="Addresses" Type="Self.Address" Multiplicity="1" />
+    <End Role="Schools" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="AddressId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="FootballAddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_Associations">
+    <End Role="Associations" Type="Self.Association" Multiplicity="1" />
+    <End Role="Schools" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Associations">
+        <PropertyRef Name="AssociationsId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="AssociationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_BowlGames">
+    <End Role="BowlGames" Type="Self.BowlGame" Multiplicity="0..1" />
+    <End Role="Schools" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BowlGames">
+        <PropertyRef Name="BowlGamesId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="BowlGameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_Conferences">
+    <End Role="Conferences" Type="Self.Conference" Multiplicity="1" />
+    <End Role="Schools" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conferences">
+        <PropertyRef Name="ConferenceId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="ConferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_Divisions">
+    <End Role="Divisions" Type="Self.Division" Multiplicity="1" />
+    <End Role="Schools" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Divisions">
+        <PropertyRef Name="DivisionsId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="DivisionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_DocumentTypes">
+    <End Role="DocumentTypes" Type="Self.DocumentType" Multiplicity="1" />
+    <End Role="Documents" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentTypes">
+        <PropertyRef Name="DocumentTypeId" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="DocumentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_Documents">
+    <End Role="Documents" Type="Self.Document" Multiplicity="0..1" />
+    <End Role="Schools" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documents">
+        <PropertyRef Name="DocumentId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="QuestionaireId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_Fields">
+    <End Role="Fields" Type="Self.Field" Multiplicity="0..1" />
+    <End Role="Schools" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fields">
+        <PropertyRef Name="FieldsId" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="FieldId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Players_Persons">
+    <End Role="Persons" Type="Self.Person" Multiplicity="1" />
+    <End Role="Players" Type="Self.Player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persons">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SchoolPersonnel_Person">
+    <End Role="Persons" Type="Self.Person" Multiplicity="1" />
+    <End Role="SchoolPersonnel" Type="Self.SchoolPersonnel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persons">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="SchoolPersonnel">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Players_School">
+    <End Role="Schools" Type="Self.School" Multiplicity="1" />
+    <End Role="Players" Type="Self.Player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schools">
+        <PropertyRef Name="SchoolId" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SchoolPersonnel_School">
+    <End Role="Schools" Type="Self.School" Multiplicity="1" />
+    <End Role="SchoolPersonnel" Type="Self.SchoolPersonnel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schools">
+        <PropertyRef Name="SchoolId" />
+      </Principal>
+      <Dependent Role="SchoolPersonnel">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScoutAssignments_School">
+    <End Role="Schools" Type="Self.School" Multiplicity="1" />
+    <End Role="ScoutAssignments" Type="Self.ScoutAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schools">
+        <PropertyRef Name="SchoolId" />
+      </Principal>
+      <Dependent Role="ScoutAssignments">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ScoutDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Addresses" EntityType="Self.Address" />
+    <EntitySet Name="AddressTypes" EntityType="Self.AddressType" />
+    <EntitySet Name="Associations" EntityType="Self.Association" />
+    <EntitySet Name="BowlGames" EntityType="Self.BowlGame" />
+    <EntitySet Name="Conferences" EntityType="Self.Conference" />
+    <EntitySet Name="Divisions" EntityType="Self.Division" />
+    <EntitySet Name="Documents" EntityType="Self.Document" />
+    <EntitySet Name="DocumentTypes" EntityType="Self.DocumentType" />
+    <EntitySet Name="Fields" EntityType="Self.Field" />
+    <EntitySet Name="Persons" EntityType="Self.Person" />
+    <EntitySet Name="Players" EntityType="Self.Player" />
+    <EntitySet Name="SchoolPersonnels" EntityType="Self.SchoolPersonnel" />
+    <EntitySet Name="Schools" EntityType="Self.School" />
+    <EntitySet Name="ScoutAssignments" EntityType="Self.ScoutAssignment" />
+    <EntitySet Name="Titles" EntityType="Self.Title" />
+    <EntitySet Name="vwSchoolPersonnelLists" EntityType="Self.vwSchoolPersonnelList" />
+    <AssociationSet Name="FK_Addresses_AddressTypes" Association="Self.FK_Addresses_AddressTypes">
+      <End Role="AddressTypes" EntitySet="AddressTypes" />
+      <End Role="Addresses" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_Addresses" Association="Self.FK_Schools_Addresses">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_FootballAddress" Association="Self.FK_Schools_FootballAddress">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_Associations" Association="Self.FK_Schools_Associations">
+      <End Role="Associations" EntitySet="Associations" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_BowlGames" Association="Self.FK_Schools_BowlGames">
+      <End Role="BowlGames" EntitySet="BowlGames" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_Conferences" Association="Self.FK_Schools_Conferences">
+      <End Role="Conferences" EntitySet="Conferences" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_Divisions" Association="Self.FK_Schools_Divisions">
+      <End Role="Divisions" EntitySet="Divisions" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_DocumentTypes" Association="Self.FK_Documents_DocumentTypes">
+      <End Role="DocumentTypes" EntitySet="DocumentTypes" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_Documents" Association="Self.FK_Schools_Documents">
+      <End Role="Documents" EntitySet="Documents" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_Fields" Association="Self.FK_Schools_Fields">
+      <End Role="Fields" EntitySet="Fields" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Players_Persons" Association="Self.FK_Players_Persons">
+      <End Role="Persons" EntitySet="Persons" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SchoolPersonnel_Person" Association="Self.FK_SchoolPersonnel_Person">
+      <End Role="Persons" EntitySet="Persons" />
+      <End Role="SchoolPersonnel" EntitySet="SchoolPersonnels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Players_School" Association="Self.FK_Players_School">
+      <End Role="Schools" EntitySet="Schools" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SchoolPersonnel_School" Association="Self.FK_SchoolPersonnel_School">
+      <End Role="Schools" EntitySet="Schools" />
+      <End Role="SchoolPersonnel" EntitySet="SchoolPersonnels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScoutAssignments_School" Association="Self.FK_ScoutAssignments_School">
+      <End Role="Schools" EntitySet="Schools" />
+      <End Role="ScoutAssignments" EntitySet="ScoutAssignments" />
+    </AssociationSet>
+    <EntitySet Name="Scouts" EntityType="EF.Scout" />
+    <AssociationSet Name="FK_Schools_PrimaryAreaScout" Association="EF.FK_Schools_PrimaryAreaScout">
+      <End Role="Scout" EntitySet="Scouts" />
+      <End Role="School" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_PrimaryScout" Association="EF.FK_Schools_PrimaryScout">
+      <End Role="Scout" EntitySet="Scouts" />
+      <End Role="School" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_RegionalScout" Association="EF.FK_Schools_RegionalScout">
+      <End Role="Scout" EntitySet="Scouts" />
+      <End Role="School" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_SecondaryScout" Association="EF.FK_Schools_SecondaryScout">
+      <End Role="Scout" EntitySet="Scouts" />
+      <End Role="School" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScoutAssignments_Scout" Association="EF.FK_ScoutAssignments_Scout">
+      <End Role="Scout" EntitySet="Scouts" />
+      <End Role="ScoutAssignment" EntitySet="ScoutAssignments" />
+    </AssociationSet>
+    <EntitySet Name="vwSchoolFullLists" EntityType="EF.vwSchoolFullList" />
+    <EntitySet Name="vwSchoolPartialLists" EntityType="EF.vwSchoolPartialList" />
+    <EntitySet Name="vwSchoolPlayerLists" EntityType="EF.vwSchoolPlayerList" />
+  </EntityContainer>
+  <EntityType Name="Scout">
+    <Key>
+      <PropertyRef Name="ScoutId" />
+    </Key>
+    <Property Name="ScoutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <Property Name="TitleId" Type="Int32" Nullable="false" />
+    <Property Name="ScoutCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Schools" Relationship="EF.FK_Schools_PrimaryAreaScout" FromRole="Scout" ToRole="School" />
+    <NavigationProperty Name="Schools1" Relationship="EF.FK_Schools_PrimaryScout" FromRole="Scout" ToRole="School" />
+    <NavigationProperty Name="Schools2" Relationship="EF.FK_Schools_RegionalScout" FromRole="Scout" ToRole="School" />
+    <NavigationProperty Name="Schools3" Relationship="EF.FK_Schools_SecondaryScout" FromRole="Scout" ToRole="School" />
+    <NavigationProperty Name="ScoutAssignments" Relationship="EF.FK_ScoutAssignments_Scout" FromRole="Scout" ToRole="ScoutAssignment" />
+  </EntityType>
+  <Association Name="FK_Schools_PrimaryAreaScout">
+    <End Type="EF.Scout" Role="Scout" Multiplicity="0..1" />
+    <End Type="EF.School" Role="School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scout">
+        <PropertyRef Name="ScoutId" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="PrimaryAreaScoutId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_PrimaryScout">
+    <End Type="EF.Scout" Role="Scout" Multiplicity="0..1" />
+    <End Type="EF.School" Role="School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scout">
+        <PropertyRef Name="ScoutId" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="PrimaryScoutId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_RegionalScout">
+    <End Type="EF.Scout" Role="Scout" Multiplicity="0..1" />
+    <End Type="EF.School" Role="School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scout">
+        <PropertyRef Name="ScoutId" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="RegionalScoutId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_SecondaryScout">
+    <End Type="EF.Scout" Role="Scout" Multiplicity="0..1" />
+    <End Type="EF.School" Role="School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scout">
+        <PropertyRef Name="ScoutId" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="SecondaryScoutId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScoutAssignments_Scout">
+    <End Type="EF.Scout" Role="Scout" Multiplicity="1" />
+    <End Type="EF.ScoutAssignment" Role="ScoutAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scout">
+        <PropertyRef Name="ScoutId" />
+      </Principal>
+      <Dependent Role="ScoutAssignment">
+        <PropertyRef Name="ScoutId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="vwSchoolFullList">
+    <Key>
+      <PropertyRef Name="SchoolCode" />
+      <PropertyRef Name="ScoutArea" />
+      <PropertyRef Name="ESPN_ID" />
+      <PropertyRef Name="SchoolShortName" />
+      <PropertyRef Name="GreenBookName" />
+      <PropertyRef Name="NickName" />
+      <PropertyRef Name="TransmitFlag" />
+      <PropertyRef Name="IsNew" />
+      <PropertyRef Name="BCSSchool" />
+      <PropertyRef Name="HideBirthdate" />
+      <PropertyRef Name="NFLSchoolID" />
+      <PropertyRef Name="isAPT" />
+      <PropertyRef Name="HBCU" />
+    </Key>
+    <Property Name="SchoolCode" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="ScoutArea" Type="Int32" Nullable="false" />
+    <Property Name="School" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ESPN_ID" Type="Int32" Nullable="false" />
+    <Property Name="SchoolShortName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GreenBookName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NickName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Association" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Division" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Conference" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="QuestionaireFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AddressLine1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HeadCoachName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="HeadCoachPhone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="HeadCoachEmail" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AssistantCoaches" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssistantPhone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="VideoDirector" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="VideoDirPhone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="AthleticDir" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="AthleticDirPhone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="AthleticDirEmail" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AthleticDirFax" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="SportsInfoDir" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SIDPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SIDFax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SIDEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Trainer" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TrainerPhone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="StrengthCoach" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="StrCoachPhone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="EquipManager" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EquipManagerPhone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="PressBoxPhone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="NationalGradedPlayers" Type="Int32" />
+    <Property Name="FalconsGradedPlayers" Type="Int32" />
+    <Property Name="PrimaryScoutID" Type="Int32" />
+    <Property Name="SecondaryScoutID" Type="Int32" />
+    <Property Name="BowlGame" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GradDate" Type="DateTime" Precision="3" />
+    <Property Name="HomeField" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Capacity" Type="Int32" />
+    <Property Name="Surface" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolColors" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FBWebsite" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TransmitFlag" Type="Boolean" Nullable="false" />
+    <Property Name="BowlGameDate" Type="DateTime" Precision="3" />
+    <Property Name="BowlGameText" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BowlGameOpponent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="BowlGameTV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsNew" Type="Boolean" Nullable="false" />
+    <Property Name="WorkoutDate" Type="DateTime" Precision="3" />
+    <Property Name="WorkoutDate2" Type="DateTime" Precision="3" />
+    <Property Name="ProLiaison" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ProLiaisonPhone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Secretary" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SecretaryPhone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="PrimaryAreaScoutID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalScoutID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Misc1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Misc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Misc3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RivalsURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RivalsAltURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InstitutionID" Type="Int32" />
+    <Property Name="BCSSchool" Type="Boolean" Nullable="false" />
+    <Property Name="HideBirthdate" Type="Boolean" Nullable="false" />
+    <Property Name="NFLSchoolID" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Restrictions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClosedDates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InSeasonSchedule" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RestrictionsCompleted" Type="DateTime" Precision="3" />
+    <Property Name="RestrictionsCompletedBy" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="FootballAddress" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="isAPT" Type="Boolean" Nullable="false" />
+    <Property Name="APTClub" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HBCU" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwSchoolPartialList">
+    <Key>
+      <PropertyRef Name="SchoolCode" />
+      <PropertyRef Name="ScoutArea" />
+      <PropertyRef Name="SchoolShortName" />
+      <PropertyRef Name="GreenBookName" />
+      <PropertyRef Name="NickName" />
+      <PropertyRef Name="NFLSchoolID" />
+      <PropertyRef Name="ESPN_ID" />
+    </Key>
+    <Property Name="SchoolCode" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="ScoutArea" Type="Int32" Nullable="false" />
+    <Property Name="School" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolShortName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GreenBookName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NickName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Association" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Division" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Conference" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="QuestionaireFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolAddress" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="FootballAddress" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="HeadCoachName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="AssistantCoaches" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VideoDirector" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="AthleticDir" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SportsInfoDir" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProLiaison" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NationalGradedPlayers" Type="Int32" />
+    <Property Name="FalconsGradedPlayers" Type="Int32" />
+    <Property Name="WorkoutDate" Type="DateTime" Precision="3" />
+    <Property Name="WorkoutDate2" Type="DateTime" Precision="3" />
+    <Property Name="PrimaryScoutID" Type="Int32" />
+    <Property Name="SecondaryScoutID" Type="Int32" />
+    <Property Name="PrimaryAreaScoutID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalScoutID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="FBWebsite" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RivalsURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RivalsAltURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NFLSchoolID" Type="Int32" Nullable="false" />
+    <Property Name="ESPN_ID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwSchoolPlayerList">
+    <Key>
+      <PropertyRef Name="SchoolId" />
+      <PropertyRef Name="PersonId" />
+      <PropertyRef Name="PlayerId" />
+      <PropertyRef Name="SchoolCode" />
+      <PropertyRef Name="ScoutArea" />
+      <PropertyRef Name="SchoolName" />
+      <PropertyRef Name="GreenBookName" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="PlayerDateModified" />
+      <PropertyRef Name="PersonDateModified" />
+    </Key>
+    <Property Name="SchoolId" Type="Int32" Nullable="false" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <Property Name="PlayerId" Type="Int32" Nullable="false" />
+    <Property Name="SchoolCode" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="ScoutArea" Type="Int32" Nullable="false" />
+    <Property Name="SchoolName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GreenBookName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Prefix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Suffix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Jersey" Type="Int32" />
+    <Property Name="Eligibility" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="HometownCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HometownState" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="Height" Type="Int32" />
+    <Property Name="Weight" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Speed" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PlayerDateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PersonDateModified" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+</Schema>

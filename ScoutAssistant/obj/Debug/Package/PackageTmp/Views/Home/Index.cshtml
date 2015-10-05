@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ScoutAssistant.Models.SchoolDashboardModel>
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<div class="jumbotron">
+    <h1>
+        Scout Assistant <small>- v.0.2.12</small>
+    </h1>
+    <p class="lead">
+        Scout Assistant is a web-based system designed to give scouts quick access to information regarding their assignments.
+        As a user of this application, you will be able to view some of the schools covered by the Atlanta Falcons scouts. 
+        Additionally, you will be able to view some of the top athletes at each of the schools. Other functionality includes 
+        the ability to search, sort and filter schools and players as well as viewing all details stored about each object. 
+        You will also have the ability to edit player information.
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>
+            Let's Get Started!
+        </h2>
+        <p>
+            Try clicking on the buttons near the top-right of the page, or click on the link below to view a list of schools.
+        </p>
+        <p>
+            <a class="btn btn-default" href="/School/List">List of Schools &raquo;</a>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>
+            What About the Players?
+        </h2>
+        <p>
+            Don't worry! We didn't forget about the players. You can click on the <code>Players</code> tab in the top-right area 
+            of the page, or click the link below to view a list of players.
+        </p>
+        <p>
+            <a class="btn btn-default" href="/Player/List">List of Players &raquo;</a>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>
+            Is That All?
+        </h2>
+        <p>
+            You can browse the application, but it is only in it's infancy.
+            @if (Model.Count() > 0)
+            {
+                <text>Here is a list of the schools you are responsible for:</text>
+                <ul>
+                @foreach (var item in Model)
+                {
+                    <li>
+                        @Html.DisplayFor(modelItem => item.GreenBookName)
+                    </li>
+                }
+                </ul>
+            }
+        </p>
+    </div>
+</div>

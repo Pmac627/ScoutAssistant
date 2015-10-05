@@ -1,0 +1,258 @@
+﻿@model IEnumerable<ScoutAssistant.Models.SchoolListModel>
+
+@{
+    ViewBag.Title = "School List";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-success">
+            <b>Here is what you can do:</b>
+            <ul>
+                <li>
+                    You can sort all columns both ascending and descending
+                </li>
+                <li>
+                    <b><i>Super Search</i></b> searches all cells simultaneously and will show all rows with a match, no matter the column
+                </li>
+                <li>
+                    When the <code><i class="fa fa-search-plus"></i></code> icon is visible, you can click on it to expand more details
+                </li>
+                <li>
+                    Clicking the blue <code><i class="fa fa-newspaper-o"></i> Detail</code> button will load all data in Scout Assistant related to that school (Shortcut: also try double click or tapping the row)
+                </li>
+                <li>
+                    Clicking the green <code><i class="fa fa-users"></i> Players</code> button will load the players page with a filter based on the school row that was selected
+                </li>
+                <li>
+                    <b><i>Copy</i></b> selects all filtered data, visible or not, so it can be easily copied to the clipboard (Shortcut: also try Alt + C on desktop)
+                </li>
+                <li>
+                    <b><i>Print</i></b> enables a print view which will automatically trigger the print dialogue (Shortcut: also try Alt + P on desktop)
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div id="data-container" class="col-md-12" style="visibility: hidden;">
+        @if (Model.Count() > 0)
+        {
+            <table id="data-list" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>
+                            <i class="fa fa-search-plus"></i>
+                        </th>
+                        <th>
+                            Action(s)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ScoutArea)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SchoolShortName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.GreenBookName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NickName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Association)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Division)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Conference)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SchoolAddress)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FootballAddress)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.HeadCoachName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProLiaison)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NationalGradedPlayers)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FalconsGradedPlayers)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PrimaryAreaScoutID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RegionalScoutID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FBWebsite)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RivalsURL)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RivalsAltURL)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NFLSchoolID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ESPN_ID)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr @(string.Format("ondblclick=location.href='/School/Details/{0}';", item.SchoolCode ))>
+                            <td>
+
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-info btn-xs" style="line-height: initial; margin: 0;" onclick="location.href='@(string.Format("/School/Details/{0}", item.SchoolCode ))';"><i class="fa fa-newspaper-o"></i> Detail</button>
+                                <button type="button" class="btn btn-success btn-xs" style="line-height: initial; margin: 0;" onclick="location.href='@(string.Format("/Player/List/{0}", item.SchoolCode ))';"><i class="fa fa-users"></i> Players</button>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ScoutArea)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SchoolShortName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GreenBookName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NickName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Association)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Division)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Conference)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SchoolAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FootballAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HeadCoachName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProLiaison)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NationalGradedPlayers)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FalconsGradedPlayers)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PrimaryAreaScoutID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RegionalScoutID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FBWebsite)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RivalsURL)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RivalsAltURL)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NFLSchoolID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ESPN_ID)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <text>There are no active schools to display.</text>
+        }
+    </div>
+
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#data-list").DataTable({
+                dom: '<"col-sm-3"f><"col-sm-4"l><"col-sm-5 pull-right"B>t<"col-sm-6"i><"col-sm-6"p>',
+                stateSave: !0,
+                lengthMenu: [
+                    [10, 20, 30, 40, -1],
+                    [10, 20, 30, 40, "All"]
+                ],
+                language: {
+                    buttons: {
+                        copyTitle: "Data Selected",
+                        copyKeys: "Press <i>ctrl</i> + <i>C</i> to copy the table data<br>to your system clipboard.<br><br>To cancel, click this message or press escape."
+                    }
+                },
+                buttons: {
+                    buttons: [{
+                        extend: "copy",
+                        className: "btn-info btn-smxs",
+                        text: "<u>C</u>opy",
+                        key: {
+                            key: "c",
+                            altKey: !0
+                        },
+                        exportOptions: {
+                            columns: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+                        }
+                    }, {
+                        extend: "print",
+                        className: "btn-success btn-smxs",
+                        text: "<u>P</u>rint",
+                        key: {
+                            key: "p",
+                            altKey: !0
+                        },
+                        exportOptions: {
+                            columns: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+                        }
+                    }]
+                    //, {
+                    //    extend: "csv",
+                    //    className: "btn-danger btn-smxs",
+                    //    text: "<u>E</u>xcel",
+                    //    key: {
+                    //        key: "e",
+                    //        altKey: !0
+                    //    },
+                    //    exportOptions: {
+                    //        columns: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+                    //    }
+                    //}]
+                }
+            }),
+            $("#data-container").css("visibility", "visible")
+        });
+        //$(document).ready(function () {
+        //    $('#data-list').DataTable({
+        //        responsive: true
+        //    });
+
+        //    $("#data-container").css("visibility", "visible");
+        //});
+    </script>
+}

@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EFStoreContainer" CdmEntityContainer="ScoutDB">
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="EF.Address">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+          <ScalarProperty Name="AddressTypeId" ColumnName="AddressTypeId" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AddressTypes">
+      <EntityTypeMapping TypeName="EF.AddressType">
+        <MappingFragment StoreEntitySet="AddressTypes">
+          <ScalarProperty Name="AddressTypeId" ColumnName="AddressTypeId" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="LongName" ColumnName="LongName" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Associations">
+      <EntityTypeMapping TypeName="EF.Association">
+        <MappingFragment StoreEntitySet="Associations">
+          <ScalarProperty Name="AssociationsId" ColumnName="AssociationsId" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="LongName" ColumnName="LongName" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BowlGames">
+      <EntityTypeMapping TypeName="EF.BowlGame">
+        <MappingFragment StoreEntitySet="BowlGames">
+          <ScalarProperty Name="BowlGamesId" ColumnName="BowlGamesId" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="LongName" ColumnName="LongName" />
+          <ScalarProperty Name="GameDate" ColumnName="GameDate" />
+          <ScalarProperty Name="GameText" ColumnName="GameText" />
+          <ScalarProperty Name="GameOpponent" ColumnName="GameOpponent" />
+          <ScalarProperty Name="GameTV" ColumnName="GameTV" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conferences">
+      <EntityTypeMapping TypeName="EF.Conference">
+        <MappingFragment StoreEntitySet="Conferences">
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="LongName" ColumnName="LongName" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Divisions">
+      <EntityTypeMapping TypeName="EF.Division">
+        <MappingFragment StoreEntitySet="Divisions">
+          <ScalarProperty Name="DivisionsId" ColumnName="DivisionsId" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="LongName" ColumnName="LongName" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="EF.Document">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FileType" ColumnName="FileType" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentTypes">
+      <EntityTypeMapping TypeName="EF.DocumentType">
+        <MappingFragment StoreEntitySet="DocumentTypes">
+          <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="LongName" ColumnName="LongName" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fields">
+      <EntityTypeMapping TypeName="EF.Field">
+        <MappingFragment StoreEntitySet="Fields">
+          <ScalarProperty Name="FieldsId" ColumnName="FieldsId" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="LongName" ColumnName="LongName" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Surface" ColumnName="Surface" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Persons">
+      <EntityTypeMapping TypeName="EF.Person">
+        <MappingFragment StoreEntitySet="Persons">
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="EF.Player">
+        <MappingFragment StoreEntitySet="Players">
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="Jersey" ColumnName="Jersey" />
+          <ScalarProperty Name="Eligibility" ColumnName="Eligibility" />
+          <ScalarProperty Name="HometownCity" ColumnName="HometownCity" />
+          <ScalarProperty Name="HometownState" ColumnName="HometownState" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SchoolPersonnels">
+      <EntityTypeMapping TypeName="EF.SchoolPersonnel">
+        <MappingFragment StoreEntitySet="SchoolPersonnel">
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schools">
+      <EntityTypeMapping TypeName="EF.School">
+        <MappingFragment StoreEntitySet="Schools">
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+          <ScalarProperty Name="ScoutArea" ColumnName="ScoutArea" />
+          <ScalarProperty Name="School1" ColumnName="School" />
+          <ScalarProperty Name="ESPNId" ColumnName="ESPNId" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="GreenBookName" ColumnName="GreenBookName" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="AssociationId" ColumnName="AssociationId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+          <ScalarProperty Name="QuestionaireId" ColumnName="QuestionaireId" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+          <ScalarProperty Name="PressBoxPhone" ColumnName="PressBoxPhone" />
+          <ScalarProperty Name="NationalGradedPlayers" ColumnName="NationalGradedPlayers" />
+          <ScalarProperty Name="FalconsGradedPlayers" ColumnName="FalconsGradedPlayers" />
+          <ScalarProperty Name="PrimaryScoutId" ColumnName="PrimaryScoutId" />
+          <ScalarProperty Name="SecondaryScoutId" ColumnName="SecondaryScoutId" />
+          <ScalarProperty Name="BowlGameId" ColumnName="BowlGameId" />
+          <ScalarProperty Name="GraduationDate" ColumnName="GraduationDate" />
+          <ScalarProperty Name="FieldId" ColumnName="FieldId" />
+          <ScalarProperty Name="SchoolColors" ColumnName="SchoolColors" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="TransmitFlag" ColumnName="TransmitFlag" />
+          <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+          <ScalarProperty Name="WorkoutDate" ColumnName="WorkoutDate" />
+          <ScalarProperty Name="WorkoutDate2" ColumnName="WorkoutDate2" />
+          <ScalarProperty Name="PrimaryAreaScoutId" ColumnName="PrimaryAreaScoutId" />
+          <ScalarProperty Name="RegionalScoutId" ColumnName="RegionalScoutId" />
+          <ScalarProperty Name="Misc1" ColumnName="Misc1" />
+          <ScalarProperty Name="Misc2" ColumnName="Misc2" />
+          <ScalarProperty Name="Misc3" ColumnName="Misc3" />
+          <ScalarProperty Name="RivalsUrl" ColumnName="RivalsUrl" />
+          <ScalarProperty Name="RivalsAltUrl" ColumnName="RivalsAltUrl" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="InstitutionId" ColumnName="InstitutionId" />
+          <ScalarProperty Name="BCSSchool" ColumnName="BCSSchool" />
+          <ScalarProperty Name="HideBirthdate" ColumnName="HideBirthdate" />
+          <ScalarProperty Name="NFLSchoolId" ColumnName="NFLSchoolId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Restrictions" ColumnName="Restrictions" />
+          <ScalarProperty Name="ClosedDates" ColumnName="ClosedDates" />
+          <ScalarProperty Name="InSeasonSchedule" ColumnName="InSeasonSchedule" />
+          <ScalarProperty Name="RestrictionsCompleted" ColumnName="RestrictionsCompleted" />
+          <ScalarProperty Name="RestrictionsCompletedBy" ColumnName="RestrictionsCompletedBy" />
+          <ScalarProperty Name="FootballAddressId" ColumnName="FootballAddressId" />
+          <ScalarProperty Name="isAPT" ColumnName="isAPT" />
+          <ScalarProperty Name="APTClub" ColumnName="APTClub" />
+          <ScalarProperty Name="HBCU" ColumnName="HBCU" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScoutAssignments">
+      <EntityTypeMapping TypeName="EF.ScoutAssignment">
+        <MappingFragment StoreEntitySet="ScoutAssignments">
+          <ScalarProperty Name="ScoutId" ColumnName="ScoutId" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Titles">
+      <EntityTypeMapping TypeName="EF.Title">
+        <MappingFragment StoreEntitySet="Titles">
+          <ScalarProperty Name="TitlesId" ColumnName="TitlesId" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="LongName" ColumnName="LongName" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwSchoolPersonnelLists">
+      <EntityTypeMapping TypeName="EF.vwSchoolPersonnelList">
+        <MappingFragment StoreEntitySet="vwSchoolPersonnelList">
+          <ScalarProperty Name="IsAssistant" ColumnName="IsAssistant" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="TitlesHeld" ColumnName="TitlesHeld" />
+          <ScalarProperty Name="TitlesHeldIds" ColumnName="TitlesHeldIds" />
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scouts">
+      <EntityTypeMapping TypeName="EF.Scout">
+        <MappingFragment StoreEntitySet="Scouts">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="ScoutCode" ColumnName="ScoutCode" />
+          <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="ScoutId" ColumnName="ScoutId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwSchoolFullLists">
+      <EntityTypeMapping TypeName="EF.vwSchoolFullList">
+        <MappingFragment StoreEntitySet="vwSchoolFullList">
+          <ScalarProperty Name="HBCU" ColumnName="HBCU" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="APTClub" ColumnName="APTClub" />
+          <ScalarProperty Name="isAPT" ColumnName="isAPT" />
+          <ScalarProperty Name="FootballAddress" ColumnName="FootballAddress" />
+          <ScalarProperty Name="RestrictionsCompletedBy" ColumnName="RestrictionsCompletedBy" />
+          <ScalarProperty Name="RestrictionsCompleted" ColumnName="RestrictionsCompleted" />
+          <ScalarProperty Name="InSeasonSchedule" ColumnName="InSeasonSchedule" />
+          <ScalarProperty Name="ClosedDates" ColumnName="ClosedDates" />
+          <ScalarProperty Name="Restrictions" ColumnName="Restrictions" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="NFLSchoolID" ColumnName="NFLSchoolID" />
+          <ScalarProperty Name="HideBirthdate" ColumnName="HideBirthdate" />
+          <ScalarProperty Name="BCSSchool" ColumnName="BCSSchool" />
+          <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="RivalsAltURL" ColumnName="RivalsAltURL" />
+          <ScalarProperty Name="RivalsURL" ColumnName="RivalsURL" />
+          <ScalarProperty Name="Misc3" ColumnName="Misc3" />
+          <ScalarProperty Name="Misc2" ColumnName="Misc2" />
+          <ScalarProperty Name="Misc1" ColumnName="Misc1" />
+          <ScalarProperty Name="RegionalScoutID" ColumnName="RegionalScoutID" />
+          <ScalarProperty Name="PrimaryAreaScoutID" ColumnName="PrimaryAreaScoutID" />
+          <ScalarProperty Name="SecretaryPhone" ColumnName="SecretaryPhone" />
+          <ScalarProperty Name="Secretary" ColumnName="Secretary" />
+          <ScalarProperty Name="ProLiaisonPhone" ColumnName="ProLiaisonPhone" />
+          <ScalarProperty Name="ProLiaison" ColumnName="ProLiaison" />
+          <ScalarProperty Name="WorkoutDate2" ColumnName="WorkoutDate2" />
+          <ScalarProperty Name="WorkoutDate" ColumnName="WorkoutDate" />
+          <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+          <ScalarProperty Name="BowlGameTV" ColumnName="BowlGameTV" />
+          <ScalarProperty Name="BowlGameOpponent" ColumnName="BowlGameOpponent" />
+          <ScalarProperty Name="BowlGameText" ColumnName="BowlGameText" />
+          <ScalarProperty Name="BowlGameDate" ColumnName="BowlGameDate" />
+          <ScalarProperty Name="TransmitFlag" ColumnName="TransmitFlag" />
+          <ScalarProperty Name="FBWebsite" ColumnName="FBWebsite" />
+          <ScalarProperty Name="SchoolColors" ColumnName="SchoolColors" />
+          <ScalarProperty Name="Surface" ColumnName="Surface" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="HomeField" ColumnName="HomeField" />
+          <ScalarProperty Name="GradDate" ColumnName="GradDate" />
+          <ScalarProperty Name="BowlGame" ColumnName="BowlGame" />
+          <ScalarProperty Name="SecondaryScoutID" ColumnName="SecondaryScoutID" />
+          <ScalarProperty Name="PrimaryScoutID" ColumnName="PrimaryScoutID" />
+          <ScalarProperty Name="FalconsGradedPlayers" ColumnName="FalconsGradedPlayers" />
+          <ScalarProperty Name="NationalGradedPlayers" ColumnName="NationalGradedPlayers" />
+          <ScalarProperty Name="PressBoxPhone" ColumnName="PressBoxPhone" />
+          <ScalarProperty Name="EquipManagerPhone" ColumnName="EquipManagerPhone" />
+          <ScalarProperty Name="EquipManager" ColumnName="EquipManager" />
+          <ScalarProperty Name="StrCoachPhone" ColumnName="StrCoachPhone" />
+          <ScalarProperty Name="StrengthCoach" ColumnName="StrengthCoach" />
+          <ScalarProperty Name="TrainerPhone" ColumnName="TrainerPhone" />
+          <ScalarProperty Name="Trainer" ColumnName="Trainer" />
+          <ScalarProperty Name="SIDEmail" ColumnName="SIDEmail" />
+          <ScalarProperty Name="SIDFax" ColumnName="SIDFax" />
+          <ScalarProperty Name="SIDPhone" ColumnName="SIDPhone" />
+          <ScalarProperty Name="SportsInfoDir" ColumnName="SportsInfoDir" />
+          <ScalarProperty Name="AthleticDirFax" ColumnName="AthleticDirFax" />
+          <ScalarProperty Name="AthleticDirEmail" ColumnName="AthleticDirEmail" />
+          <ScalarProperty Name="AthleticDirPhone" ColumnName="AthleticDirPhone" />
+          <ScalarProperty Name="AthleticDir" ColumnName="AthleticDir" />
+          <ScalarProperty Name="VideoDirPhone" ColumnName="VideoDirPhone" />
+          <ScalarProperty Name="VideoDirector" ColumnName="VideoDirector" />
+          <ScalarProperty Name="AssistantPhone" ColumnName="AssistantPhone" />
+          <ScalarProperty Name="AssistantCoaches" ColumnName="AssistantCoaches" />
+          <ScalarProperty Name="HeadCoachEmail" ColumnName="HeadCoachEmail" />
+          <ScalarProperty Name="HeadCoachPhone" ColumnName="HeadCoachPhone" />
+          <ScalarProperty Name="HeadCoachName" ColumnName="HeadCoachName" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="QuestionaireFileName" ColumnName="QuestionaireFileName" />
+          <ScalarProperty Name="Conference" ColumnName="Conference" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Association" ColumnName="Association" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="GreenBookName" ColumnName="GreenBookName" />
+          <ScalarProperty Name="SchoolShortName" ColumnName="SchoolShortName" />
+          <ScalarProperty Name="ESPN_ID" ColumnName="ESPN_ID" />
+          <ScalarProperty Name="School" ColumnName="School" />
+          <ScalarProperty Name="ScoutArea" ColumnName="ScoutArea" />
+          <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwSchoolPartialLists">
+      <EntityTypeMapping TypeName="EF.vwSchoolPartialList">
+        <MappingFragment StoreEntitySet="vwSchoolPartialList">
+          <ScalarProperty Name="ESPN_ID" ColumnName="ESPN_ID" />
+          <ScalarProperty Name="NFLSchoolID" ColumnName="NFLSchoolID" />
+          <ScalarProperty Name="RivalsAltURL" ColumnName="RivalsAltURL" />
+          <ScalarProperty Name="RivalsURL" ColumnName="RivalsURL" />
+          <ScalarProperty Name="FBWebsite" ColumnName="FBWebsite" />
+          <ScalarProperty Name="RegionalScoutID" ColumnName="RegionalScoutID" />
+          <ScalarProperty Name="PrimaryAreaScoutID" ColumnName="PrimaryAreaScoutID" />
+          <ScalarProperty Name="SecondaryScoutID" ColumnName="SecondaryScoutID" />
+          <ScalarProperty Name="PrimaryScoutID" ColumnName="PrimaryScoutID" />
+          <ScalarProperty Name="WorkoutDate2" ColumnName="WorkoutDate2" />
+          <ScalarProperty Name="WorkoutDate" ColumnName="WorkoutDate" />
+          <ScalarProperty Name="FalconsGradedPlayers" ColumnName="FalconsGradedPlayers" />
+          <ScalarProperty Name="NationalGradedPlayers" ColumnName="NationalGradedPlayers" />
+          <ScalarProperty Name="ProLiaison" ColumnName="ProLiaison" />
+          <ScalarProperty Name="SportsInfoDir" ColumnName="SportsInfoDir" />
+          <ScalarProperty Name="AthleticDir" ColumnName="AthleticDir" />
+          <ScalarProperty Name="VideoDirector" ColumnName="VideoDirector" />
+          <ScalarProperty Name="AssistantCoaches" ColumnName="AssistantCoaches" />
+          <ScalarProperty Name="HeadCoachName" ColumnName="HeadCoachName" />
+          <ScalarProperty Name="FootballAddress" ColumnName="FootballAddress" />
+          <ScalarProperty Name="SchoolAddress" ColumnName="SchoolAddress" />
+          <ScalarProperty Name="QuestionaireFileName" ColumnName="QuestionaireFileName" />
+          <ScalarProperty Name="Conference" ColumnName="Conference" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Association" ColumnName="Association" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="GreenBookName" ColumnName="GreenBookName" />
+          <ScalarProperty Name="SchoolShortName" ColumnName="SchoolShortName" />
+          <ScalarProperty Name="School" ColumnName="School" />
+          <ScalarProperty Name="ScoutArea" ColumnName="ScoutArea" />
+          <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwSchoolPlayerLists">
+      <EntityTypeMapping TypeName="EF.vwSchoolPlayerList">
+        <MappingFragment StoreEntitySet="vwSchoolPlayerList">
+          <ScalarProperty Name="PersonDateModified" ColumnName="PersonDateModified" />
+          <ScalarProperty Name="PlayerDateModified" ColumnName="PlayerDateModified" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="HometownState" ColumnName="HometownState" />
+          <ScalarProperty Name="HometownCity" ColumnName="HometownCity" />
+          <ScalarProperty Name="Eligibility" ColumnName="Eligibility" />
+          <ScalarProperty Name="Jersey" ColumnName="Jersey" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+          <ScalarProperty Name="GreenBookName" ColumnName="GreenBookName" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="ScoutArea" ColumnName="ScoutArea" />
+          <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
